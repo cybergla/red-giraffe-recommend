@@ -24,6 +24,25 @@ test = test[:10]
 k_means = cluster.KMeans(n_clusters=10)
 k_means.fit(train)
 
+def elbow_test(c_start,c_end,step):
+	"""
+	Plots graph of inertia vs no of clusters
+	"""
+	inertia = []
+	for i in xrange(c_start,c_end,step):
+		k_means = cluster.KMeans(n_clusters=i)
+		k_means.fit(train)
+		inertia.append(k_means.inertia_)
+	plt.plot(range(c_start,c_end,step),inertia)
+	plt.xlabel("Number of Clusters")
+	plt.ylabel("Inertia")
+	plt.show()
+	return
+
+elbow_test(1,50,1)
+
+
+"""
 labels = k_means.labels_
 #print len(labels),dataset.shape,train.shape,test.shape
 clusters = k_means.predict(test)
@@ -34,3 +53,4 @@ for j in xrange(len(test)):
 			similar.append(i+10)
 	outf = df.ix[similar]
 	outf.to_csv('output'+str(j)+'.csv',columns=names)
+"""
