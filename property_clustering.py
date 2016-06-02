@@ -28,9 +28,9 @@ def elbow_test(c_start,c_end,step):
 	"""
 	inertia = []
 	for i in xrange(c_start,c_end,step):
-		k_means = cluster.KMeans(n_clusters=i)
-		k_means.fit(train)
-		inertia.append(k_means.inertia_)
+		model = cluster.KMeans(n_clusters=i)
+		model.fit(train)
+		inertia.append(model.inertia_)
 	plt.plot(range(c_start,c_end,step),inertia)
 	plt.xlabel("Number of Clusters")
 	plt.ylabel("Inertia")
@@ -58,12 +58,14 @@ train = train[10:]
 test = dataset.copy()
 test = test[:10]
 
-k_means = cluster.KMeans(n_clusters=10)
-k_means.fit(train)
+model = cluster.KMeans(n_clusters=10)
+model.fit(train)
 
-labels = k_means.labels_
+#TODO: model persistance (pickle)
+
+labels = model.labels_
 #print len(labels),dataset.shape,train.shape,test.shape
-clusters = k_means.predict(test)
+clusters = model.predict(test)
 for j in xrange(len(test)):
 	similar = []
 	for i in xrange(len(labels)):
@@ -71,4 +73,3 @@ for j in xrange(len(test)):
 			similar.append(i+10)
 	outf = df.ix[similar]
 	outf.to_csv('output'+str(j)+'.csv',columns=selected_columns)
-
