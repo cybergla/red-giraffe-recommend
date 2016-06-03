@@ -1,19 +1,19 @@
 import numpy as np
 import pandas as pd
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-from matplotlib import pyplot as plt
-import matplotlib.cm as cm
-from mpl_toolkits.mplot3d import Axes3D
-from sklearn.metrics import silhouette_samples, silhouette_score
+from sklearn import cluster
+#from sklearn.decomposition import PCA
+#from matplotlib import pyplot as plt
+#import matplotlib.cm as cm
+#from mpl_toolkits.mplot3d import Axes3D
+#from sklearn.metrics import silhouette_samples, silhouette_score
 
 def show_PCA_graph(dataset,type="3d"):
 	"""
 	Does PCA on the dataset and plots pca1 vs pca2
 	"""
-	pca = PCA(n_components=2)
+	pca = PCA()
 	transform = pca.fit_transform(dataset)
-	#print pca.explained_variance_ratio_
+	print pca.explained_variance_ratio_
 	if type=="3d":	
 		fig = plt.figure()
 		ax = fig.add_subplot(111, projection='3d')
@@ -49,7 +49,7 @@ def silhouette_analysis(dataset):
 		ax1.set_xlim([-1, 1])
 		ax1.set_ylim([0, len(X) + (n_clusters + 1) * 10])
 
-		clusterer = KMeans(n_clusters=n_clusters, random_state=10)
+		clusterer = cluster.KMeans(n_clusters=n_clusters, random_state=10)
 		cluster_labels = clusterer.fit_predict(X)
 		silhouette_avg = silhouette_score(X, cluster_labels)
 		print "For n_clusters =", n_clusters,"The average silhouette_score is :", silhouette_avg
@@ -90,7 +90,7 @@ def silhouette_analysis(dataset):
 
 DATA_FILE_NAME = "data.csv"
 
-columns = ['index'	,'type'	,'pid'	,'score'	,'id'	,'name'	,'date_entered'	,'date_modified'	,'description'	,'assigned_user_name'	,'deleted'	,'additional_rooms'	,'amenities_status'	,'available_from_date'	,'backend_status'	,'covered_area'	,'currency_type'	,'documents_status'	,'lease_duration_expected'	,'locality'	,'lat'	,'lon'	,'lock_in_period'	,'maintenance_charges'	,'no_of_balconies'	,'no_of_bathrooms'	,'owner_verified'	,'plot_area'	,'posted_on'	,'property_type'	,'property_verified'	,'rejection_comments'	,'rent_expected'	,'security_deposit'	,'state'	,'status'	,'suitable_time_to_call'	,'type_of_accomodation'	,'unit_of_measure'	,'year_of_construction1'	,'city'	,'content_team_status'	,'availabllity'	,'total_floors'	,'property_facing'	,'property_title'	,'unit_of_measure1'	,'floor'	,'lease_type_expected'	,'lease_subtype_expected1'	,'remarks'	,'servant_room'	,'servant_room_with_toilet'	,'flooring_type'	,'pin_code'	,'suitable_day'	,'periodicity_maintenance_bill'	,'proof_of_ownership_of_rental_p']
+columns = ['index' ,'type' ,'pid' ,'score' ,'id' ,'name' ,'date_entered' ,'date_modified' ,'description' ,'assigned_user_name' ,'deleted' ,'additional_rooms' ,'amenities_status' ,'available_from_date' ,'backend_status' ,'covered_area' ,'currency_type' ,'documents_status' ,'lease_duration_expected' ,'locality' ,'lat' ,'lon' ,'lock_in_period' ,'maintenance_charges' ,'no_of_balconies' ,'no_of_bathrooms' ,'owner_verified' ,'plot_area' ,'posted_on' ,'property_type' ,'property_verified' ,'rejection_comments' ,'rent_expected' ,'security_deposit' ,'state' ,'status' ,'suitable_time_to_call' ,'type_of_accomodation' ,'unit_of_measure' ,'year_of_construction1' ,'city' ,'content_team_status' ,'availabllity' ,'total_floors' ,'property_facing' ,'property_title' ,'unit_of_measure1' ,'floor' ,'lease_type_expected' ,'lease_subtype_expected1' ,'remarks' ,'servant_room' ,'servant_room_with_toilet' ,'flooring_type' ,'pin_code' ,'suitable_day' ,'periodicity_maintenance_bill' ,'proof_of_ownership_of_rental_p']
 selected_columns = ['pid', 'name', 'covered_area', 'lease_duration_expected', 'lat', 'lon', 'lock_in_period', 'maintenance_charges', 'no_of_balconies', 'no_of_bathrooms', 'plot_area', 'rent_expected', 'security_deposit', 'type_of_accomodation', 'total_floors', 'floor', 'servant_room', 'servant_room_with_toilet']
 #reqd_cols = ['pid', 'name', 'covered_area', 'lease_duration_expected', 'lat', 'lon', 'lock_in_period', 'maintenance_charges', 'plot_area', 'rent_expected', 'security_deposit', 'type_of_accomodation']
 df = pd.read_csv(DATA_FILE_NAME,sep=',',header=0,names=selected_columns, usecols=selected_columns)
@@ -110,11 +110,15 @@ train = train[10:]
 test = dataset.copy()
 test = test[:10]
 
-model = KMeans(n_clusters=10)
+#model = cluster.KMeans(n_clusters=100)
+#model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=100, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
+model = cluster.Birch(n_clusters=None)
+model.fit(train)
+
 
 #TODO: model persistance (pickle)
-
 labels = model.labels_
+#print labels, labels.shape
 #print len(labels),dataset.shape,train.shape,test.shape
 clusters = model.predict(test)
 for j in xrange(len(test)):
