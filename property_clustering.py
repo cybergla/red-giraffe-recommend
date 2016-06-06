@@ -1,10 +1,12 @@
 import numpy as np
 import pandas as pd
 from sklearn import cluster
-#from sklearn.decomposition import PCA
-#from matplotlib import pyplot as plt
-#import matplotlib.cm as cm
-#from mpl_toolkits.mplot3d import Axes3D
+import pickle
+from sklearn import preprocessing
+from sklearn.decomposition import PCA
+from matplotlib import pyplot as plt
+import matplotlib.cm as cm
+from mpl_toolkits.mplot3d import Axes3D
 #from sklearn.metrics import silhouette_samples, silhouette_score
 
 def show_PCA_graph(dataset,type="3d"):
@@ -13,7 +15,7 @@ def show_PCA_graph(dataset,type="3d"):
 	"""
 	pca = PCA()
 	transform = pca.fit_transform(dataset)
-	print pca.explained_variance_ratio_
+	#print pca.explained_variance_ratio_
 	if type=="3d":	
 		fig = plt.figure()
 		ax = fig.add_subplot(111, projection='3d')
@@ -92,30 +94,26 @@ DATA_FILE_NAME = "data.csv"
 
 columns = ['index' ,'type' ,'pid' ,'score' ,'id' ,'name' ,'date_entered' ,'date_modified' ,'description' ,'assigned_user_name' ,'deleted' ,'additional_rooms' ,'amenities_status' ,'available_from_date' ,'backend_status' ,'covered_area' ,'currency_type' ,'documents_status' ,'lease_duration_expected' ,'locality' ,'lat' ,'lon' ,'lock_in_period' ,'maintenance_charges' ,'no_of_balconies' ,'no_of_bathrooms' ,'owner_verified' ,'plot_area' ,'posted_on' ,'property_type' ,'property_verified' ,'rejection_comments' ,'rent_expected' ,'security_deposit' ,'state' ,'status' ,'suitable_time_to_call' ,'type_of_accomodation' ,'unit_of_measure' ,'year_of_construction1' ,'city' ,'content_team_status' ,'availabllity' ,'total_floors' ,'property_facing' ,'property_title' ,'unit_of_measure1' ,'floor' ,'lease_type_expected' ,'lease_subtype_expected1' ,'remarks' ,'servant_room' ,'servant_room_with_toilet' ,'flooring_type' ,'pin_code' ,'suitable_day' ,'periodicity_maintenance_bill' ,'proof_of_ownership_of_rental_p']
 selected_columns = ['pid', 'name', 'covered_area', 'lease_duration_expected', 'lat', 'lon', 'lock_in_period', 'maintenance_charges', 'no_of_balconies', 'no_of_bathrooms', 'plot_area', 'rent_expected', 'security_deposit', 'type_of_accomodation', 'total_floors', 'floor', 'servant_room', 'servant_room_with_toilet']
-#reqd_cols = ['pid', 'name', 'covered_area', 'lease_duration_expected', 'lat', 'lon', 'lock_in_period', 'maintenance_charges', 'plot_area', 'rent_expected', 'security_deposit', 'type_of_accomodation']
+reqd_cols = ['pid', 'name', 'covered_area', 'lease_duration_expected']
 df = pd.read_csv(DATA_FILE_NAME,sep=',',header=0,names=selected_columns, usecols=selected_columns)
 n_samples = df.pid.shape[0]
 n_features = len(selected_columns)
 
-#print "Samples= ",n_samples
-#print "Features= ",n_features
-
-dataset = np.zeros((n_samples,n_features-3))
-for row in df.itertuples():
-	for x in xrange(0,n_features-3):
-		dataset[row[0],x] = row[x+3]
+std_scale = preprocessing.StandardScaler().fit(df[selected_columns[2:]])
+dataset = std_scale.transform(df[selected_columns[2:]])
 
 train = dataset.copy()
 train = train[10:]
 test = dataset.copy()
 test = test[:10]
 
+n_clusters = train.shape[0]/5
 #model = cluster.KMeans(n_clusters=100)
-#model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=100, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
-model = cluster.Birch(n_clusters=None)
+model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=n_clusters, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
+#model = cluster.Birch(n_clusters=None)			#BIRCH is better for large datasets, best option
 model.fit(train)
 
-
+#print np.unique(model.labels_)
 #TODO: model persistance (pickle)
 labels = model.labels_
 #print labels, labels.shape
@@ -127,4 +125,4 @@ for j in xrange(len(test)):
 		if labels[i] == clusters[j]:
 			similar.append(i+10)
 	outf = df.ix[similar]
-	outf.to_csv('output'+str(j)+'.csv',columns=selected_columns)
+	outf.to_csv('./results/output'+str(j)+'.csv',columns=selected_columns)
