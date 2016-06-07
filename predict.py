@@ -4,19 +4,13 @@ import re
 from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
+import preprocess
 
-FILE_DATA = "input_data.csv"	#File to get the test data from
-FILE_FEATURES = "features.csv"	#File to get the feature list from
+#Preprocess data
+df = preprocess.process_data('input_data.csv')
 
-df_features = pd.read_csv(FILE_FEATURES,sep=',',header=None)
-selected_columns = df_features[0].values
-
-df = pd.read_csv(FILE_DATA,sep=',',header=0,usecols=selected_columns)
-
-#Data preprocessing
-for index, row in df.iterrows():
-	df.loc[index,"_source/type_of_accomodation"] = df.loc[index,"_source/type_of_accomodation"].replace("bhk","").replace("rk","")
-	df.loc[index,"_source/floor"] = re.sub(r"\D*","",df.loc[index,"_source/floor"])
+#Get list of features
+selected_columns = preprocess.get_features()
 
 #Load scale model from disk
 std_scale = joblib.load('scale_model.pkl')
