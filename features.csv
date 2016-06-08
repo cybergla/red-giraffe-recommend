@@ -1,5 +1,4 @@
 _id
-_source.name
 _source.covered_area
 _source.lease_duration_expected
 _source.location.lat

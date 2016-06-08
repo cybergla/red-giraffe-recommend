@@ -8,13 +8,11 @@ from sklearn import preprocessing
 import constants
 import preprocess
 
-df = preprocess.process_data('out.csv')
-selected_columns = preprocess.get_features()
+df = preprocess.get_data('prod.csv',1)
 
 #Normalize data
-std_scale = preprocessing.StandardScaler().fit(df[selected_columns[2:]])
-dataset = std_scale.transform(df[selected_columns[2:]])
-
+std_scale = preprocessing.StandardScaler().fit(df)
+dataset = std_scale.transform(df)
 
 #Determine number of clusters
 n_clusters = dataset.shape[0]/5

@@ -1,4 +1,4 @@
-_id,_source/name,_source/covered_area,_source/lease_duration_expected,_source/location/lat,_source/location/lon,_source/lock_in_period,_source/maintenance_charges,_source/no_of_balconies,_source/no_of_bathrooms,_source/plot_area,_source/rent_expected,_source/security_deposit,_source/type_of_accomodation,_source/total_floors,_source/floor,_source/servant_room,_source/servant_room_with_toilet
+_id,_source.name,_source.covered_area,_source.lease_duration_expected,_source.location.lat,_source.location.lon,_source.lock_in_period,_source.maintenance_charges,_source.no_of_balconies,_source.no_of_bathrooms,_source.plot_area,_source.rent_expected,_source.security_deposit,_source.type_of_accomodation,_source.total_floors,_source.floor,_source.servant_room,_source.servant_room_with_toilet
 18652885-f1f4-4464-a20e-566301c73420,RG-0000000289,1400,36,28.544822,77.259317,12,5000,2,3,1800,75000,225000,3,3,3,1,1
 16ef1b28-67b3-eb98-ae66-5679580ac934,RG-0000000572,2100,24,28.56993,77.269141,12,15000,2,3,2700,100000,300000,3,3,1,1,1
 14c59d9d-c29e-85be-7a14-563cb13bd9d3,RG-0000000024,4400,24,28.564197,77.264569,12,11000,4,6,6750,175000,350000,5,2,0,1,1
