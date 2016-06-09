@@ -4,19 +4,19 @@ from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
 
-import preprocess
-import constants
+import utils.preprocess as preprocess
+import config.constants as constants
 
 def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX):
 	selected_columns = preprocess.get_features()
 	#Preprocess the item to be predicted
 	df = preprocess.process_data(df[selected_columns[1:]])
 	#Load scale model from disk
-	std_scale = joblib.load(constants.FILE_CLUSTER_MODEL)
+	std_scale = joblib.load(constants.FILE_SCALE_MODEL)
 	#Normalize data
 	test = std_scale.transform(df)
 	#Load cluster model from disk
-	model = joblib.load(constants.FILE_SCALE_MODEL)
+	model = joblib.load(constants.FILE_CLUSTER_MODEL)
 	#Get labels of cluster model
 	labels = model.labels_
 	#Predict cluster no. of test data
@@ -26,4 +26,4 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX):
 	for i in xrange(len(labels)):
 		if labels[i] == cluster:
 			similar.append(i)
-	return df_in.ix[similar].values[:,1]
+	return df_in.ix[similar].values[:,1].tolist()

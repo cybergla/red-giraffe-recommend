@@ -5,8 +5,8 @@ from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
 
-import constants
-import preprocess
+import config.constants as constants
+import utils.preprocess as preprocess
 
 if (len(sys.argv) > 1):
 	input_file = sys.argv[1]

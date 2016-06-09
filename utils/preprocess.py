@@ -1,6 +1,6 @@
 import pandas as pd
 import re
-import constants
+import kmeans.config.constants as constants
 
 DEBUG=False
 
