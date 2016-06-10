@@ -7,5 +7,5 @@ FILE_INDEX = "./data/index.csv"		#Name of the index file
 
 #Field names to access data
 FIELD_TYPE_OF_ACCOMODATION = "_source.type_of_accomodation"
-FIELD_SOURCE_FLOOR = "_source.floor"
+FIELD_FLOOR = "_source.floor"
 FIELD_LATITUDE = "_source.location.lat"

@@ -1,6 +1,8 @@
 import pandas as pd
 import re
-import kmeans.config.constants as constants
+import sys
+sys.path.append('..')
+import config.constants as constants
 
 DEBUG=False
 
@@ -22,14 +24,23 @@ def process_data(df):
 	#Remove rows with invalid values
 	df = df[df[constants.FIELD_LATITUDE]!=0]
 
+	df_features = pd.read_csv(constants.FILE_FEATURES,sep=',',header=None)
+	repl_cols = []
+	for index, row in df_features.iterrows():
+		if (str(row[1])!='nan'):
+			column = row[0]
+			lst = row.values.tolist()
+			lst = [x for x in lst if str(x)!='nan']
+			lst = ["" if x == 'null' else x for x in lst]
+			repl_cols.append(lst)
+
 	#Preprocess data
 	for index, row in df.iterrows():
-		
-		#Replace bhk, rk etc. in type of accomodation
-		df.loc[index,constants.FIELD_TYPE_OF_ACCOMODATION] = re.sub(r"\D","",df.loc[index,constants.FIELD_TYPE_OF_ACCOMODATION])
-		#Replace floor desc with number
-		df.loc[index,constants.FIELD_SOURCE_FLOOR] = re.sub(r"Duplex|Ground_\d|Ground",'0',df.loc[index,constants.FIELD_SOURCE_FLOOR])
-		df.loc[index,constants.FIELD_SOURCE_FLOOR] = re.sub(r"\D","",df.loc[index,constants.FIELD_SOURCE_FLOOR])
+		for lst in repl_cols:
+			for i in xrange(1,len(lst),2):
+				pattern = re.compile(lst[i])
+				repl = lst[i+1]
+				df.loc[index,lst[0]] = re.sub(pattern,repl,df.loc[index,lst[0]])
 
 	#Remake index to account for dropped rows
 	df.index = range(df.shape[0])
@@ -56,3 +67,4 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True):
 		outf.to_csv(constants.FILE_INDEX)
 
 	return df[selected_columns[column_offset:]]
+
