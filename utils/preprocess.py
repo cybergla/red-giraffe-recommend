@@ -45,9 +45,6 @@ def process_data(df):
 	#Remake index to account for dropped rows
 	df.index = range(df.shape[0])
 
-	if(DEBUG):
-		df.to_csv('preprocessed.csv')
-
 	return df
 
 
@@ -61,6 +58,9 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True):
 		df.to_csv('raw.csv')
 
 	df = process_data(df)
+	
+	if(DEBUG):
+		df.to_csv('preprocessed.csv')
 
 	if(to_index):
 		outf = df[selected_columns[0]]		#select only ids

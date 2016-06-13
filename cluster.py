@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import sys
+import argparse
 from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
@@ -8,19 +8,23 @@ from sklearn import preprocessing
 import config.constants as constants
 import utils.preprocess as preprocess
 
-if (len(sys.argv) > 1):
-	input_file = sys.argv[1]
-else:
-	input_file = constants.FILE_DATA
+parser = argparse.ArgumentParser(description='Perform K Means clustering on a given dataset.')
+parser.add_argument('--input-file', '-i', type=str, help='the file name of the input dataset', default=constants.FILE_DATA)
+parser.add_argument('--n-clusters', '-N', type=int, help='number of clusters (default: no. of samples/5)')
 
-df = preprocess.get_data(input_file,1)
+args = parser.parse_args()
+
+df = preprocess.get_data(args.input_file,1)
 
 #Normalize data
 std_scale = preprocessing.StandardScaler().fit(df)
 dataset = std_scale.transform(df)
 
 #Determine number of clusters
-n_clusters = dataset.shape[0]/5
+if(args.n_clusters == None):
+	n_clusters = dataset.shape[0]/5
+else:
+	n_clusters = args.n_clusters
 
 #Make model
 model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=n_clusters, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
