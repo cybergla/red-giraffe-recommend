@@ -58,13 +58,13 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True):
 		df.to_csv('raw.csv')
 
 	df = process_data(df)
-	
+
 	if(DEBUG):
 		df.to_csv('preprocessed.csv')
 
 	if(to_index):
 		outf = df[selected_columns[0]]		#select only ids
-		outf.to_csv(constants.FILE_INDEX)
+		outf.to_csv(constants.FILE_INDEX,index=False)
 
 	return df[selected_columns[column_offset:]]
 
