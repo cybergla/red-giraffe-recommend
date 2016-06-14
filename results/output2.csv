@@ -1,4 +1,0 @@
-,_id,_source.covered_area,_source.lease_duration_expected,_source.location.lat,_source.location.lon,_source.lock_in_period,_source.maintenance_charges,_source.no_of_balconies,_source.no_of_bathrooms,_source.plot_area,_source.rent_expected,_source.security_deposit,_source.type_of_accomodation,_source.total_floors,_source.floor,_source.servant_room,_source.servant_room_with_toilet
-2,1b4d7262-d47f-963e-340b-564f129ef0fc,6900,24,28.460584,77.057885,12,20000,7,6,7500,200000,400000.0,5,13.0,0,1,1
-441,452ef3e2-75a4-1a77-31c4-5667c7cb1aad,2100,24,28.482197,77.078571,24,5000,4,5,2600,110000,440000.0,3,12.0,0,1,1
-642,a94ea0c8-1afd-1071-f4ec-56605b681eb6,4200,24,28.480366,77.081327,12,6000,5,5,5000,100000,300000.0,4,15.0,0,1,1

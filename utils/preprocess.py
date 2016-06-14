@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import sys
+sys.path.append('.')
 sys.path.append('..')
 import config.constants as constants
 
