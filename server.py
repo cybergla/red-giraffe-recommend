@@ -1,8 +1,5 @@
 from flask import Flask, request, jsonify
 from pandas.io.json import json_normalize
-'''
-curl -H "Content-type: application/json" -X POST http://127.0.0.1:5000/predict/api/v1/get-prediction/ -d ''
-'''
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -22,3 +19,6 @@ def return_predictions():
 
 	else:
 		return "415 Unsupported Media Type ;)"
+
+if __name__ == '__main__':
+	app.run()

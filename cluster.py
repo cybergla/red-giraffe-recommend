@@ -4,6 +4,7 @@ import argparse
 from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
+#Suppress warnings from clustering
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 

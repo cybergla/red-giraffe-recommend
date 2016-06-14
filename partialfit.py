@@ -4,6 +4,7 @@ from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
 import argparse
+
 import utils.preprocess as preprocess
 import config.constants as constants
 
