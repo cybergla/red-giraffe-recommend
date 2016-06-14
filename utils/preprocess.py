@@ -48,7 +48,7 @@ def process_data(df):
 	return df
 
 
-def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True):
+def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True,to_append=False):
 
 	selected_columns = get_features()	#Only select these features
 
@@ -63,8 +63,11 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True):
 		df.to_csv('preprocessed.csv')
 
 	if(to_index):
-		outf = df[selected_columns[0]]		#select only ids
-		outf.to_csv(constants.FILE_INDEX)
-
+		outf = df[selected_columns[0]]	#select only ids
+		if(to_append):
+			with open(constants.FILE_INDEX,'a')as f:
+				outf.to_csv(f)	
+		else:
+			outf.to_csv(constants.FILE_INDEX)
 	return df[selected_columns[column_offset:]]
 

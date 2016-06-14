@@ -1,0 +1,61 @@
+import numpy as np
+import pandas as pd
+import sys
+from sklearn import cluster
+from sklearn.externals import joblib
+from sklearn import preprocessing
+
+import config.constants as constants
+import utils.preprocess as preprocess
+
+if (len(sys.argv) > 1):
+	input_file = sys.argv[1]
+else:
+	input_file = constants.FILE_DATA
+
+df = preprocess.get_data(input_file,1)
+df1=df.ix[:700]
+df2=df.ix[600:700]
+df3=df.ix[700:]
+#Normalize data
+std_scale = preprocessing.StandardScaler().fit(df)
+dataset = std_scale.transform(df)
+dataset1 = std_scale.transform(df1) 
+dataset2 = std_scale.transform(df2)
+dataset3 = std_scale.transform(df3)
+#Determine number of clusters
+n_clusters = dataset.shape[0]/6
+
+#Make model
+
+
+model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=n_clusters, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
+#model = cluster.MiniBatchKMeans(n_clusters=n_clusters, init="random", random_state=42)
+model.fit(dataset1)
+lists=model.labels_
+print len(model.cluster_centers_)
+print len(model.labels_)
+print type(model.labels_)
+#model.partial_fit(dataset2)
+
+'''
+model = cluster.MiniBatchKMeans(n_clusters=n_clusters, init="random", random_state=42)
+for i in np.split(dataset,5):
+	model.partial_fit(i) 
+'''
+#Save model to disk
+joblib.dump(model, constants.FILE_CLUSTER_MODEL)
+#Save normalized model to disk
+#joblib.dump(std_scale,constants.FILE_SCALE_MODEL)
+
+model.partial_fit(dataset3)
+print  'break'
+lists=np.append(lists,model.labels_)
+model.labels_=lists
+print len(model.cluster_centers_)
+
+print len(model.labels_)
+print model.labels_
+
+joblib.dump(std_scale,constants.FILE_SCALE_MODEL)
+#joblib.dump(model,'model.pkl')'''

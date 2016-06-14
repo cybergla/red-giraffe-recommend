@@ -19,6 +19,7 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX):
 	model = joblib.load(constants.FILE_CLUSTER_MODEL)
 	#Get labels of cluster model
 	labels = model.labels_
+	print len(model.labels_)
 	#Predict cluster no. of test data
 	cluster = model.predict(test)
 	df_in = pd.read_csv(FILE_INDEX)
@@ -26,4 +27,6 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX):
 	for i in xrange(len(labels)):
 		if labels[i] == cluster:
 			similar.append(i)
-	return df_in.ix[similar].values[:,1].tolist()
+	return df_in.ix[similar].values[:,1].tolist
+
+

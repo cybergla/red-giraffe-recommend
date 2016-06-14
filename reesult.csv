@@ -1,0 +1,4 @@
+,Unnamed: 0,_id,_source.covered_area,_source.floor,_source.lease_duration_expected,_source.location.lat,_source.location.lon,_source.lock_in_period,_source.maintenance_charges,_source.no_of_balconies,_source.no_of_bathrooms,_source.plot_area,_source.rent_expected,_source.security_deposit,_source.servant_room,_source.servant_room_with_toilet,_source.total_floors,_source.type_of_accomodation
+20,20,bd4f08f0-bb69-fe6a-0fd7-5657068a6f8b,1350,2,24,28.712681,77.140573,12,500,2,2,1500,25000,50000.0,0,0,3.0,3
+672,672,9876c7f1-a429-a8e8-e9bf-56d14ef56dbe,1500,3,24,28.530529,77.15749699999998,12,0,3,2,1600,34000,68000.0,0,0,4.0,3
+711,711,40e62c7e-c4be-daa0-3ac1-56570c6f31da,1600,1,24,28.688013,77.140244,12,3500,2,3,1800,38000,125000.0,0,0,3.0,3
