@@ -7,6 +7,8 @@ from sklearn import preprocessing
 import utils.preprocess as preprocess
 import config.constants as constants
 
+DEBUG=True
+
 def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX):
 	selected_columns = preprocess.get_features()
 	#Preprocess the item to be predicted
@@ -22,11 +24,17 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX):
 	print len(model.labels_)
 	#Predict cluster no. of test data
 	cluster = model.predict(test)
-	df_in = pd.read_csv(FILE_INDEX)
+	df_in = pd.read_csv(FILE_INDEX,header=None)
 	similar = []
 	for i in xrange(len(labels)):
 		if labels[i] == cluster:
 			similar.append(i)
-	return df_in.ix[similar].values[:,1].tolist
 
+	if DEBUG:
+		return df_in.ix[similar]
+	else:
+		return df_in.ix[similar].values[:,1].tolist()
+
+if (DEBUG and __name__ == '__main__'):
+	print get_reccomended_ids(pd.read_csv('./data/input_data2.csv'))
 

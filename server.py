@@ -15,7 +15,7 @@ app = Flask(__name__)
 def return_predictions():
 	if request.headers['Content-Type'] == 'text/plain':
 		return "Text Message: " 
-        elif request.headers['Content-Type'] == 'application/json':
+	elif request.headers['Content-Type'] == 'application/json':
 		data = request.json
 		result = json_normalize(data['hits']['hits'])
 		return jsonify(predict.get_reccomended_ids(result))

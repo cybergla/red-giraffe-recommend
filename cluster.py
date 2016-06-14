@@ -11,6 +11,7 @@ import utils.preprocess as preprocess
 parser = argparse.ArgumentParser(description='Perform K Means clustering on a given dataset.')
 parser.add_argument('--input-file', '-i', type=str, help='the file name of the input dataset', default=constants.FILE_DATA)
 parser.add_argument('--n-clusters', '-N', type=int, help='number of clusters (default: no. of samples/5)')
+parser.add_argument('--parallel','-p',action="store_true",help='run clustering in parallel using KMeans')
 
 args = parser.parse_args()
 
@@ -27,7 +28,10 @@ else:
 	n_clusters = args.n_clusters
 
 #Make model
-model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=n_clusters, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
+if (args.parallel):
+	model = cluster.KMeans(n_clusters=n_clusters, init='k-means++', n_jobs=-1)
+else:
+	model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=n_clusters, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
 model.fit(dataset)
 
 #Save model to disk
