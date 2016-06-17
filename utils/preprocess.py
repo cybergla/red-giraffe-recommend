@@ -24,6 +24,7 @@ def process_data(df):
 
 	#Remove rows with invalid values
 	df = df[df[constants.FIELD_LATITUDE]!=0]
+	df = df[df[constants.FIELD_LONGITUDE]!=0]
 
 	df_features = pd.read_csv(constants.FILE_FEATURES,sep=',',header=None)
 	repl_cols = []

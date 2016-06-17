@@ -9,3 +9,4 @@ FILE_PARTIAL_DATA = "./data/partialdata.csv"#File to perform partial fitting
 FIELD_TYPE_OF_ACCOMODATION = "_source.type_of_accomodation"
 FIELD_FLOOR = "_source.floor"
 FIELD_LATITUDE = "_source.location.lat"
+FIELD_LONGITUDE = "_source.location.lon"

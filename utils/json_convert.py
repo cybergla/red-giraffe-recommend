@@ -7,7 +7,7 @@ import pandas as pd
 import json
 from pandas.io.json import json_normalize
 
-def convert_json_to_csv(input_file='file1.json',output_file='./data/raw.csv'):
+def convert_json_to_csv(input_file='file1.json',output_file='../data/raw.csv'):
 	with open(input_file) as data_file:    
 		data = json.load(data_file)
 
