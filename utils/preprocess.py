@@ -1,9 +1,13 @@
 import pandas as pd
 import re
+import logging
 import sys
 sys.path.append('.')
 sys.path.append('..')
+
 import config.constants as constants
+
+log = logging.getLogger('recommend.preprocess')
 
 DEBUG=False
 
@@ -18,6 +22,8 @@ def process_data(df):
 	""" 
 	Sanatizes and prepares input 
 	"""
+	log.info("Preprocessing")
+	log.debug("Initial: n_features: %d n_samples: %d" % (df.shape[1],df.shape[0]))
 
 	#Remove rows with NaN, null values
 	df = df.dropna()
@@ -26,7 +32,9 @@ def process_data(df):
 	df = df[df[constants.FIELD_LATITUDE]!=0]
 	df = df[df[constants.FIELD_LONGITUDE]!=0]
 
+	log.info("Reading features from %s" % constants.FILE_FEATURES)
 	df_features = pd.read_csv(constants.FILE_FEATURES,sep=',',header=None)
+
 	repl_cols = []
 	for index, row in df_features.iterrows():
 		if (str(row[1])!='nan'):
@@ -35,6 +43,8 @@ def process_data(df):
 			lst = [x for x in lst if str(x)!='nan']
 			lst = ["" if x == 'null' else x for x in lst]
 			repl_cols.append(lst)
+
+	log.debug("Number of processed features: %d" % len(repl_cols))
 
 	#Preprocess data
 	for index, row in df.iterrows():
@@ -47,6 +57,8 @@ def process_data(df):
 	#Remake index to account for dropped rows
 	df.index = range(df.shape[0])
 
+	log.debug("Final: n_features: %d n_samples: %d" % (df.shape[1],df.shape[0]))
+
 	return df
 
 
@@ -54,6 +66,7 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True,t
 
 	selected_columns = get_features()	#Only select these features
 
+	log.info("Reading csv")
 	df = pd.read_csv(input_file_name,sep=',',header=0, usecols=selected_columns)
 	
 	if(DEBUG):
@@ -68,9 +81,11 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True,t
 
 		outf = df[selected_columns[0]]	#select only ids
 		if(to_append):
+			log.info("Appending to index: %s" % constants.FILE_INDEX)
 			with open(constants.FILE_INDEX,'a')as f:
 				outf.to_csv(f,index=False)	
 		else:
+			log.info("Saving to index: %s" % constants.FILE_INDEX)
 			outf.to_csv(constants.FILE_INDEX,index=False)
 
 	return df[selected_columns[column_offset:]]

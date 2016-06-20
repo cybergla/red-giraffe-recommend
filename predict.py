@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
+import logging
 
 import utils.preprocess as preprocess
 import config.constants as constants
