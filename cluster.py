@@ -44,7 +44,7 @@ else:
 log.info("Clustering on %s with %d clusters" % (args.input_file,n_clusters))
 model = cluster.MiniBatchKMeans(init='k-means++', n_clusters=n_clusters, batch_size=100, n_init=10, max_no_improvement=10, verbose=0, random_state=0)
 model.fit(dataset)
-
+print 'Clustering Sucessfull'
 #Save model to disk
 log.info("Saving models to disk")
 joblib.dump(model, constants.FILE_CLUSTER_MODEL)
