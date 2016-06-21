@@ -59,3 +59,10 @@ optional arguments:
                         Logging level (default: WARNING)
 ```
 ### 2. Predictions
+###3. Partial Fit
+###4. Server
+###5 Config
+##5.1 Constants
+###6 Utils
+###6.1 Preprocess
+###6.2 Json_convert
