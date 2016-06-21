@@ -62,7 +62,7 @@ optional arguments:
 ###3. Partial Fit
 ###4. Server
 ###5 Config
-##5.1 Constants
+####5.1 Constants
 ###6 Utils
-###6.1 Preprocess
-###6.2 Json_convert
+####6.1 Preprocess
+####6.2 Json_convert
