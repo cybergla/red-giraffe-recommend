@@ -59,10 +59,16 @@ optional arguments:
                         Logging level (default: WARNING)
 ```
 ### 2. Predictions
-###3. Partial Fit
-###4. Server
-###5 Config
-####5.1 Constants
-###6 Utils
-####6.1 Preprocess
-####6.2 Json_convert
+Predicts the similar properties for a given property whose attributes are specified in the form json data.
+
+Returns a list of property ids.
+### 3. Partial Fit
+### 4. Server
+A flask service which uses the predict module to give out recommendations.
+The service is deployed as web service by nginx and gunicorn.
+### 5 Config
+#### 5.1 Constants
+### 6 Utils
+#### 6.1 Preprocess
+#### 6.2 Json_convert
+Utility for convertion of input json data to program specific csv format
