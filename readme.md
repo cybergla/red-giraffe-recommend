@@ -96,10 +96,10 @@ Keeps project level constants such as default filenames, field names etc.
 
 ### 6 Utils
 #### 6.1 Preprocess
-Contains all the preprocessing logic such as sanatizing input, removing unnecessary columns, regex substituion on specified columns
+Contains all the preprocessing logic such as sanitising input, removing unnecessary columns, regex substitution on specified columns
 
 #### 6.2 Json_convert
-Utility for convertion of input json data to program specific csv format
+Utility for conversion of input JSON data to program specific CSV format
 
 ### 7. Test
 The test module is a small script that performs clustering and predictions using test data and outputs the results to the `results/` folder.
