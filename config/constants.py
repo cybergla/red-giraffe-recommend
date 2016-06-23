@@ -17,7 +17,3 @@ MAX_NO_OF_IMPROVEMENT=10
 VERBOSE=0
 RANDOM_STATE=0
 
-#Field names to access data
-FIELD_TYPE_OF_ACCOMODATION = "_source.type_of_accomodation"
-FIELD_FLOOR = "_source.floor"
-
