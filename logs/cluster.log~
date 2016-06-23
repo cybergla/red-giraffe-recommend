@@ -1,0 +1,184 @@
+2016-06-21 06:56:49,379 - recommend - INFO - Getting data from file
+2016-06-21 06:56:49,381 - recommend.preprocess - INFO - Reading csv
+2016-06-21 06:56:49,400 - recommend.preprocess - INFO - Preprocessing
+2016-06-21 06:56:49,400 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-21 06:56:49,403 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-21 06:56:49,407 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-21 06:56:50,984 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 692
+2016-06-21 06:56:50,985 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-21 06:56:50,988 - recommend - INFO - Normalizing data
+2016-06-21 06:56:50,989 - recommend - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-21 06:56:51,456 - recommend - INFO - Saving models to disk
+<<<<<<< Updated upstream
+2016-06-23 12:50:19,418 - recommend.cluster - INFO - Getting data from file
+2016-06-23 12:50:19,422 - recommend.preprocess - INFO - Reading csv
+2016-06-23 12:50:19,437 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 12:50:19,438 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 12:50:19,440 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 12:50:19,442 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 12:50:20,696 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 692
+2016-06-23 12:50:20,696 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 12:50:20,698 - recommend.cluster - INFO - Normalizing data
+2016-06-23 12:50:20,700 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 12:50:20,953 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 12:57:38,895 - recommend.cluster - INFO - Getting data from file
+2016-06-23 12:57:40,209 - recommend.cluster - INFO - Normalizing data
+2016-06-23 12:57:40,211 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 12:57:40,462 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 13:00:39,073 - recommend.cluster - INFO - Getting data from file
+2016-06-23 13:00:39,075 - recommend.preprocess - INFO - Reading csv
+2016-06-23 13:00:39,092 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 13:00:39,092 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 13:00:39,094 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 13:00:39,097 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 13:00:40,389 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 692
+2016-06-23 13:00:40,389 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 13:00:40,391 - recommend.cluster - INFO - Normalizing data
+2016-06-23 13:00:40,392 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 13:00:40,646 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 13:03:20,755 - recommend.partial_fit - INFO - Partial fit on data/partialdata.csv
+2016-06-23 13:03:20,757 - recommend.preprocess - INFO - Reading csv
+2016-06-23 13:03:20,763 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 13:03:20,763 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 185
+2016-06-23 13:03:20,766 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 13:03:20,768 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 13:03:21,095 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 183
+2016-06-23 13:03:21,095 - recommend.preprocess - INFO - Appending to index: ./data/index.csv
+2016-06-23 13:03:21,097 - recommend.partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-23 13:03:21,099 - recommend.partial_fit - DEBUG - Old labels size: 692
+2016-06-23 13:03:21,103 - recommend.partial_fit - DEBUG - New labels size: 875
+2016-06-23 13:51:25,033 - recommend.preprocess - ERROR - Could not open file - asda.csv
+2016-06-23 13:52:37,015 - recommend.preprocess - ERROR - Could not open file - asda.csv
+=======
+2016-06-23 14:39:53,320 - recommend - INFO - Getting data from file
+2016-06-23 14:39:53,322 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:40:24,164 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:40:24,164 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:40:24,167 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:40:24,184 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:42:17,150 - recommend - INFO - Getting data from file
+2016-06-23 14:42:17,152 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:42:17,172 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:42:17,172 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 14:42:17,174 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:42:17,185 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:42:18,797 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 14:42:18,803 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 14:42:18,806 - recommend - INFO - Normalizing data
+2016-06-23 14:42:18,808 - recommend - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 14:42:19,208 - recommend - INFO - Saving models to disk
+2016-06-23 14:42:49,813 - recommend - INFO - Getting data from file
+2016-06-23 14:42:49,814 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:42:49,834 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:42:49,834 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 14:42:49,836 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:42:49,847 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:42:53,221 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 14:42:53,228 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 14:42:53,230 - recommend - INFO - Normalizing data
+2016-06-23 14:42:53,234 - recommend - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 14:42:53,628 - recommend - INFO - Saving models to disk
+2016-06-23 14:43:31,293 - recommend - INFO - Getting data from file
+2016-06-23 14:43:31,297 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:44:02,876 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:44:02,876 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:44:02,879 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:44:02,913 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:46:13,427 - recommend - INFO - Getting data from file
+2016-06-23 14:46:13,429 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:46:44,257 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:46:44,257 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:46:44,262 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:46:44,279 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:47:33,872 - recommend - INFO - Getting data from file
+2016-06-23 14:47:33,874 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:48:04,722 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:48:04,722 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:48:04,726 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:48:04,743 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:49:20,828 - recommend - INFO - Getting data from file
+2016-06-23 14:49:20,830 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:49:51,848 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:49:51,848 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:49:51,851 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:49:51,870 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:50:45,771 - recommend - INFO - Getting data from file
+2016-06-23 14:50:45,772 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:51:16,447 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:51:16,448 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:51:16,451 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:51:16,469 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:51:46,874 - recommend - INFO - Getting data from file
+2016-06-23 14:51:46,877 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:52:17,833 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:52:17,833 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:52:17,838 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:52:17,855 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:52:54,487 - recommend - INFO - Getting data from file
+2016-06-23 14:52:54,489 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:53:25,257 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:53:25,257 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:53:25,261 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:53:25,279 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:55:07,439 - recommend - INFO - Getting data from file
+2016-06-23 14:55:07,440 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:55:40,058 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:55:40,058 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:55:40,063 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:55:40,097 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:56:20,701 - recommend - INFO - Getting data from file
+2016-06-23 14:56:20,703 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:56:20,823 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:56:20,823 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 5
+2016-06-23 14:56:20,824 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:56:20,834 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 14:56:20,834 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 0
+2016-06-23 14:56:20,835 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 14:56:20,836 - recommend - INFO - Normalizing data
+2016-06-23 14:58:25,584 - recommend - INFO - Getting data from file
+2016-06-23 14:58:25,586 - recommend.preprocess - INFO - Reading csv
+2016-06-23 14:58:56,954 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 14:58:56,954 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 14:58:56,958 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 14:58:56,975 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 15:01:52,433 - recommend - INFO - Getting data from file
+2016-06-23 15:01:52,434 - recommend.preprocess - INFO - Reading csv
+2016-06-23 15:02:30,013 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 15:02:30,013 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 15:02:30,017 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 15:02:30,034 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 15:03:44,456 - recommend - INFO - Getting data from file
+2016-06-23 15:03:44,457 - recommend.preprocess - INFO - Reading csv
+2016-06-23 15:03:44,469 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 15:03:44,469 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 15:03:44,471 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 15:03:44,483 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 15:03:48,704 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 877
+2016-06-23 15:03:48,713 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 15:03:48,716 - recommend - INFO - Normalizing data
+2016-06-23 15:03:48,720 - recommend - INFO - Clustering on ./data/raw.csv with 175 clusters
+2016-06-23 15:03:49,329 - recommend - INFO - Saving models to disk
+2016-06-23 15:04:54,261 - recommend - INFO - Getting data from file
+2016-06-23 15:04:54,263 - recommend.preprocess - INFO - Reading csv
+2016-06-23 15:05:24,789 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 15:05:24,789 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 15:05:24,792 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 15:05:24,807 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 15:06:08,968 - recommend - INFO - Getting data from file
+2016-06-23 15:06:08,970 - recommend.preprocess - INFO - Reading csv
+2016-06-23 15:06:40,224 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 15:06:40,224 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 15:06:40,228 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 15:06:40,244 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 15:09:49,387 - recommend - INFO - Getting data from file
+2016-06-23 15:09:49,389 - recommend.preprocess - INFO - Reading csv
+2016-06-23 15:10:20,346 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 15:10:20,346 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 885
+2016-06-23 15:10:20,351 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 15:10:20,369 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 15:10:25,534 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 877
+2016-06-23 15:10:25,550 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 15:10:25,554 - recommend - INFO - Normalizing data
+2016-06-23 15:10:25,557 - recommend - INFO - Clustering on ./data/data.json with 175 clusters
+2016-06-23 15:10:26,138 - recommend - INFO - Saving models to disk
+>>>>>>> Stashed changes

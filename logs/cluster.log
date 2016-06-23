@@ -48,3 +48,4 @@
 2016-06-23 13:03:21,103 - recommend.partial_fit - DEBUG - New labels size: 875
 2016-06-23 13:51:25,033 - recommend.preprocess - ERROR - Could not open file - asda.csv
 2016-06-23 13:52:37,015 - recommend.preprocess - ERROR - Could not open file - asda.csv
+
