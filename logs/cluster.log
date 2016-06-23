@@ -9,3 +9,40 @@
 2016-06-21 06:56:50,988 - recommend - INFO - Normalizing data
 2016-06-21 06:56:50,989 - recommend - INFO - Clustering on ./data/prod.csv with 138 clusters
 2016-06-21 06:56:51,456 - recommend - INFO - Saving models to disk
+2016-06-23 12:50:19,418 - recommend.cluster - INFO - Getting data from file
+2016-06-23 12:50:19,422 - recommend.preprocess - INFO - Reading csv
+2016-06-23 12:50:19,437 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 12:50:19,438 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 12:50:19,440 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 12:50:19,442 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 12:50:20,696 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 692
+2016-06-23 12:50:20,696 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 12:50:20,698 - recommend.cluster - INFO - Normalizing data
+2016-06-23 12:50:20,700 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 12:50:20,953 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 12:57:38,895 - recommend.cluster - INFO - Getting data from file
+2016-06-23 12:57:40,209 - recommend.cluster - INFO - Normalizing data
+2016-06-23 12:57:40,211 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 12:57:40,462 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 13:00:39,073 - recommend.cluster - INFO - Getting data from file
+2016-06-23 13:00:39,075 - recommend.preprocess - INFO - Reading csv
+2016-06-23 13:00:39,092 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 13:00:39,092 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 13:00:39,094 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 13:00:39,097 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 13:00:40,389 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 692
+2016-06-23 13:00:40,389 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 13:00:40,391 - recommend.cluster - INFO - Normalizing data
+2016-06-23 13:00:40,392 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 13:00:40,646 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 13:03:20,755 - recommend.partial_fit - INFO - Partial fit on data/partialdata.csv
+2016-06-23 13:03:20,757 - recommend.preprocess - INFO - Reading csv
+2016-06-23 13:03:20,763 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 13:03:20,763 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 185
+2016-06-23 13:03:20,766 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 13:03:20,768 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 13:03:21,095 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 183
+2016-06-23 13:03:21,095 - recommend.preprocess - INFO - Appending to index: ./data/index.csv
+2016-06-23 13:03:21,097 - recommend.partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-23 13:03:21,099 - recommend.partial_fit - DEBUG - Old labels size: 692
+2016-06-23 13:03:21,103 - recommend.partial_fit - DEBUG - New labels size: 875

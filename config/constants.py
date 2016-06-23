@@ -5,6 +5,18 @@ FILE_CLUSTER_MODEL = "./models/cluster_model.pkl"	#Name of the cluster model pic
 FILE_SCALE_MODEL = "./models/scale_model.pkl"	#Name of the scale model pickle file
 FILE_INDEX = "./data/index.csv"		#Name of the index file
 FILE_PARTIAL_DATA = "./data/partialdata.csv"#File to perform partial fitting
+FILE_CLUSTER_LOG = "logs/cluster.log"
+
+#Clustering constants
+N_CLUSTERS=-1
+CLUSTER_FACTOR=5
+INIT='k-means++'
+BATCH_SIZE=100 
+N_INIT=10 
+MAX_NO_OF_IMPROVEMENT=10
+VERBOSE=0
+RANDOM_STATE=0
+
 #Field names to access data
 FIELD_TYPE_OF_ACCOMODATION = "_source.type_of_accomodation"
 FIELD_FLOOR = "_source.floor"
