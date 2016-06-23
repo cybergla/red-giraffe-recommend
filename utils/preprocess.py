@@ -8,10 +8,7 @@ sys.path.append('..')
 import config.constants as constants
 
 log = logging.getLogger('recommend.preprocess')
-if not len(log.handlers):
-		fh = logging.FileHandler(constants.FILE_CLUSTER_LOG)
-		fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-		log.addHandler(fh)
+
 
 DEBUG=False
 
@@ -42,7 +39,7 @@ def process_data(df):
 
 	repl_cols = []
 	for index, row in df_features.iterrows():
-		if (str(row[1]!='nan')):
+		if (str(row[1])!='nan'):
 			df=drop_data(df,row[0],row[1])
 		if (str(row[2])!='nan'):
 			column = row[0]

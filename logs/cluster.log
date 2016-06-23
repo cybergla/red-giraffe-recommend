@@ -48,3 +48,50 @@
 2016-06-23 13:03:21,103 - recommend.partial_fit - DEBUG - New labels size: 875
 2016-06-23 13:51:25,033 - recommend.preprocess - ERROR - Could not open file - asda.csv
 2016-06-23 13:52:37,015 - recommend.preprocess - ERROR - Could not open file - asda.csv
+2016-06-23 16:16:08,650 - recommend.cluster - INFO - Getting data from file
+2016-06-23 16:16:08,652 - recommend.preprocess - INFO - Reading csv
+2016-06-23 16:16:08,652 - recommend.preprocess - INFO - Reading csv
+2016-06-23 16:16:08,667 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 16:16:08,667 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 16:16:08,667 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 16:16:08,667 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 16:16:08,669 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 16:16:08,669 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 16:16:08,680 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 16:16:08,680 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 16:16:10,016 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 16:16:10,016 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 16:16:10,016 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 16:16:10,016 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 16:16:10,019 - recommend.cluster - INFO - Normalizing data
+2016-06-23 16:16:10,020 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 16:16:10,283 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 16:16:54,240 - recommend.cluster - INFO - Getting data from file
+2016-06-23 16:16:54,242 - recommend.preprocess - INFO - Reading csv
+2016-06-23 16:16:54,242 - recommend.preprocess - INFO - Reading csv
+2016-06-23 16:16:54,257 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 16:16:54,257 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 16:16:54,257 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 16:16:54,257 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 16:16:54,259 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 16:16:54,259 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 16:16:54,271 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 16:16:54,271 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 16:16:55,603 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 16:16:55,603 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 16:16:55,604 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 16:16:55,604 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 16:16:55,606 - recommend.cluster - INFO - Normalizing data
+2016-06-23 16:16:55,608 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 16:16:55,868 - recommend.cluster - INFO - Saving models to disk
+2016-06-23 16:17:33,208 - recommend.cluster - INFO - Getting data from file
+2016-06-23 16:17:33,210 - recommend.preprocess - INFO - Reading csv
+2016-06-23 16:17:33,224 - recommend.preprocess - INFO - Preprocessing
+2016-06-23 16:17:33,224 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-23 16:17:33,226 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-23 16:17:33,237 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-23 16:17:34,516 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-23 16:17:34,516 - recommend.preprocess - INFO - Saving to index: ./data/index.csv
+2016-06-23 16:17:34,519 - recommend.cluster - INFO - Normalizing data
+2016-06-23 16:17:34,520 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-23 16:17:34,774 - recommend.cluster - INFO - Saving models to disk
