@@ -4,7 +4,7 @@ import logging
 import sys
 sys.path.append('.')
 sys.path.append('..')
-
+import read_data
 import config.constants as constants
 
 log = logging.getLogger('recommend.preprocess')
@@ -49,34 +49,34 @@ def process_data(df):
 			repl_cols.append(lst)
 
 	log.debug("Number of processed features: %d" % len(repl_cols))
-
+	#Remake index to account for dropped rows
+	df.index = range(df.shape[0])
 	#Preprocess data
 	for index, row in df.iterrows():
 		for lst in repl_cols:
 			for i in xrange(1,len(lst),2):
 				pattern = re.compile(lst[i])
 				repl = lst[i+1]
-				df.loc[index,lst[0]] = re.sub(pattern,repl,df.loc[index,lst[0]])
-
-	#Remake index to account for dropped rows
-	df.index = range(df.shape[0])
+				df.loc[index,lst[0]] = re.sub(pattern,str(repl),df.loc[index,lst[0]])
 
 	log.debug("Final: n_features: %d n_samples: %d" % (df.shape[1],df.shape[0]))
 
 	return df
 
 
-def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True,to_append=False):
+def get_data(input_file_name=constants.FILE_DATA,column_offset=0,source_type=constants.SOURCE_TYPE,to_index=True,to_append=False):
 
 	selected_columns = get_features()	#Only select these features
 
-	log.info("Reading csv")
+
+	log.info("Reading data")
 
 	try:
-		df = pd.read_csv(input_file_name,sep=',',header=0, usecols=selected_columns)
+		df = read_data.read(input_file_name,source_type,selected_columns)
 	except IOError as e:
 		log.error("Could not open file - %s" % input_file_name)
 		raise
+
 	
 	if(DEBUG):
 		df.to_csv('raw.csv')
