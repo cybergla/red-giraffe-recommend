@@ -10,11 +10,11 @@ import config.constants as constants
 
 def fit(input_file=constants.FILE_PARTIAL_DATA):
 	log = logging.getLogger('recommend.partial_fit')
-	
+
 	if not len(log.handlers):
 		fh = logging.FileHandler(constants.FILE_CLUSTER_LOG)
 		fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-		log.addHandler()
+		log.addHandler(fh)
 
 	log.info("Partial fit on %s" % input_file)
 	df = preprocess.get_data(input_file,1,to_append=True)

@@ -11,7 +11,7 @@ log = logging.getLogger('recommend.preprocess')
 if not len(log.handlers):
 		fh = logging.FileHandler(constants.FILE_CLUSTER_LOG)
 		fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
-		log.addHandler()
+		log.addHandler(fh)
 
 DEBUG=False
 
