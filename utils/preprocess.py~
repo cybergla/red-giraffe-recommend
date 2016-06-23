@@ -17,7 +17,7 @@ def get_features(input_file_name=constants.FILE_FEATURES):
 	"""
 	df_features = pd.read_csv(input_file_name,sep=',',header=None)	
 	return df_features[0].values
-def drop_data(df,coulmn,invalid):
+def drop_data(df,coulmn,invalid);
 	#Remove rows with invalid values
 	df =df[df[coulmn]!=invalid]
 	return df

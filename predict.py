@@ -35,6 +35,8 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None,getList=T
 	else:
 		return df_in.ix[similar]
 
+#print get_reccomended_ids(pd.read_csv('input_data.csv'))#.to_csv('results.csv')
+
 if (DEBUG and __name__ == '__main__'):
 	print get_reccomended_ids(pd.read_csv('./data/input_data2.csv'))
 

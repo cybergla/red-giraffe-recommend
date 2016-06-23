@@ -14,10 +14,16 @@ def return_predictions():
 	if request.headers['Content-Type'] == 'application/json':
 		data = request.json
 		result = json_normalize(data['hits']['hits'])
-
+<<<<<<< Updated upstream
 		response = jsonify(predict.get_reccomended_ids(result))
 		return response, '200', {"Content-Type": "application/json"}
+=======
 
+		return jsonify(predict.get_reccomended_ids(result))
+
+
+
+>>>>>>> Stashed changes
 	else:
 		return "415: Unsupported Media Type."
 

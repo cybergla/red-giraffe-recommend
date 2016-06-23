@@ -13,10 +13,14 @@ def main(input_file=constants.FILE_PARTIAL_DATA):
 	df = preprocess.get_data(input_file,1,to_append=True)
 	log.debug("Size of dataset: %d x %d" % df.shape)
 
+<<<<<<< Updated upstream
 	#Load scale model from disk
 	std_scale = joblib.load(constants.FILE_SCALE_MODEL)
 	dataset = std_scale.transform(df)
+=======
 
+args = parser.parse_args()
+>>>>>>> Stashed changes
 
 	#Load cluster model from disk
 	model = joblib.load(constants.FILE_CLUSTER_MODEL)
