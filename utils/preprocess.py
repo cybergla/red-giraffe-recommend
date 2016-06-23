@@ -8,8 +8,12 @@ sys.path.append('..')
 import config.constants as constants
 
 log = logging.getLogger('recommend.preprocess')
+if not len(log.handlers):
+		fh = logging.FileHandler(constants.FILE_CLUSTER_LOG)
+		fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))
+		log.addHandler()
 
-DEBUG=True
+DEBUG=False
 
 def get_features(input_file_name=constants.FILE_FEATURES):
 	"""
@@ -17,10 +21,12 @@ def get_features(input_file_name=constants.FILE_FEATURES):
 	"""
 	df_features = pd.read_csv(input_file_name,sep=',',header=None)	
 	return df_features[0].values
+
 def drop_data(df,coulmn,invalid):
 	#Remove rows with invalid values
-	df =df[df[coulmn]!=invalid]
+	df = df[df[coulmn]!=invalid]
 	return df
+
 def process_data(df):
 	""" 
 	Sanatizes and prepares input 
@@ -30,8 +36,6 @@ def process_data(df):
 
 	#Remove rows with NaN, null values
 	df = df.dropna()
-
-	
 
 	log.info("Reading features from %s" % constants.FILE_FEATURES)
 	df_features = pd.read_csv(constants.FILE_FEATURES,sep=',',header=None)
@@ -70,7 +74,12 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,to_index=True,t
 	selected_columns = get_features()	#Only select these features
 
 	log.info("Reading csv")
-	df = pd.read_csv(input_file_name,sep=',',header=0, usecols=selected_columns)
+
+	try:
+		df = pd.read_csv(input_file_name,sep=',',header=0, usecols=selected_columns)
+	except IOError as e:
+		log.error("Could not open file - %s" % input_file_name)
+		raise
 	
 	if(DEBUG):
 		df.to_csv('raw.csv')

@@ -9,6 +9,10 @@ import partialfit
 
 app = Flask(__name__)
 
+@app.route('/test')
+def return_success():
+	return "Success!"
+
 @app.route('/predict/api/v1/get-prediction/',methods=['POST'])
 def return_predictions():
 	if request.headers['Content-Type'] == 'application/json':
@@ -19,16 +23,14 @@ def return_predictions():
 		return response, '200', {"Content-Type": "application/json"}
 
 	else:
-		return "415: Unsupported Media Type."
+		return "415: Unsupported Media Type.",'415'
 
-@app.route('/test')
-def return_success():
-	return "Success!"
-
-@app.route('/cluster/api/v1/partial-fit',methods=['GET'])
+@app.route('/cluster/api/v1/partial-fit',methods=['POST'])
 def do_partial_fit():
-	filename = request.args['filename']
-	partialfit.main('./data/'+filename)
+	
+	filename = request.form['filename']
+	partialfit.fit('./data/'+filename)
+	
 	return "Done"
 
 if __name__ == '__main__':

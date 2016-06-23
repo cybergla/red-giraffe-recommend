@@ -13,7 +13,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 import config.constants as constants
 import utils.preprocess as preprocess
 
-def fit(input_file=constants.FILE_DATA,):
+def fit(input_file=constants.FILE_DATA):
 	log = logging.getLogger('recommend.cluster')
 
 	log.info("Getting data from file")
@@ -35,7 +35,7 @@ def fit(input_file=constants.FILE_DATA,):
 	model = cluster.MiniBatchKMeans(init=constants.INIT, n_clusters=n_clusters, batch_size=constants.BATCH_SIZE, n_init=constants.N_INIT, max_no_improvement=constants.MAX_NO_OF_IMPROVEMENT, verbose=constants.VERBOSE, random_state=constants.RANDOM_STATE)
 	model.fit(dataset)
 
-	print 'Clustering Sucessfull'
+	print 'Clustering successful'
 
 	#Save model to disk
 	log.info("Saving models to disk")
