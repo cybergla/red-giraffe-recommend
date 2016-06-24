@@ -73,28 +73,29 @@ Predicts the similar properties for a given property whose attributes are specif
 
 Returns a list of property ids.
 
-### 4. Server
+### 3. Server
 A flask service which uses the predict module to give out recommendations.
 The service is deployed as web service by nginx and gunicorn.
 
-### 5 Config
-#### 5.1 Constants
+### 4 Config
+#### 4.1 Constants
 Keeps project level constants such as default filenames, field names etc.
 
-### 6 Utils
-#### 6.1 Preprocess
+### 5 Utils
+#### 5.1 Preprocess
 Contains all the preprocessing logic such as sanitising input, removing unnecessary columns, regex substitution on specified columns.
+
 * To drop rows containing invalid values, specify that value in the `invalid_value` column in the features.csv table.
 * All rows containing NA/NULL values will be dropped automatically
 * To filter columns, specify the regular expression in the `regex` column and the substitute value in `substitution`
 
-#### 6.2 Json_convert
+#### 5.2 Json_convert
 Utility for conversion of input JSON data to program specific CSV format
 
-#### 6.3 Read Data
+#### 5.3 Read Data
 Module to read data from multiple sources
 
-### 7. Test
+### 6. Test
 The test module is a small script that performs clustering and predictions using test data and outputs the results to the `results/` folder.
 ```
 usage: test.py [-h] [--train-file TRAIN_FILE] [--test_file TEST_FILE] [-N N]
@@ -112,8 +113,8 @@ optional arguments:
                         dataset (default: 5)
 ```
 
-### 8. Data
-#### 8.1 Features
+### 7. Data
+#### 7.1 Features
 Specify which features to choose from the data set for clustering. Format :-
 ```
 +---------------+---------------+---------------+--------------+--------------+--------------+
