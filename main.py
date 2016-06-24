@@ -7,7 +7,7 @@ import partialfit
 
 #Initialize arguments
 parser = argparse.ArgumentParser(description='Perform K Means clustering on a given dataset.')
-parser.add_argument('--input-file', '-i', type=str, help='the file name of the input dataset', default=constants.FILE_DATA)
+parser.add_argument('--input-file', '-i', type=str, help='the file name of the input dataset', default=None)
 parser.add_argument('--log', type=str, choices=['DEBUG', 'INFO', 'WARNING','ERROR','CRITICAL'], help='Logging level (default: WARNING)',default="WARNING")
 parser.add_argument('--mode','-m', type=str, choices=['FULL','PARTIAL'], help='Type of clustering (default: FULL)',default="FULL")
 args = parser.parse_args()
@@ -20,6 +20,6 @@ fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(me
 log.addHandler(fh)
 
 if args.mode == "FULL":
-	cluster.fit(args.input_file)
+	cluster.fit(constants.FILE_DATA if args.input_file is None else args.input_file)
 elif args.mode == "PARTIAL":
-	partialfit.fit(args.input_file)
+	partialfit.fit(constants.FILE_PARTIAL_DATA if args.input_file is None else args.input_file)
