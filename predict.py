@@ -4,6 +4,7 @@ from sklearn import cluster
 from sklearn.externals import joblib
 from sklearn import preprocessing
 import logging
+import sqlite3
 
 import utils.preprocess as preprocess
 import config.constants as constants
@@ -11,6 +12,7 @@ import config.constants as constants
 DEBUG=True
 
 def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None,getList=True):
+	#Get required features
 	selected_columns = preprocess.get_features()
 	#Preprocess the item to be predicted
 	df = preprocess.process_data(df[selected_columns[1:]])
@@ -24,16 +26,24 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None,getList=T
 	labels = model.labels_
 	#Predict cluster no. of test data
 	cluster = model.predict(test)
-	df_in = pd.read_csv(FILE_INDEX,header=header)
+	#Get list of similar item labels
 	similar = []
 	for i in xrange(len(labels)):
 		if labels[i] == cluster:
 			similar.append(i)
-
-	if getList:
-		return df_in.ix[similar].values[:,0].tolist()
-	else:
-		return df_in.ix[similar]
+	#Open connection to DB
+	conn = sqlite3.connect(constants.FILE_INDEX_DB)
+	#Get db cursor
+	cur = conn.cursor()
+	#Create SQL query
+	sql="select _id from ids where indx in ({seq})".format(seq=','.join(['?']*len(similar)))
+	#Run query
+	cur.execute(sql,similar)
+	#Fetch and return result
+	result = cur.fetchall()
+	if result == []:
+		return None
+	return [r[0] for r in result]
 
 #print get_reccomended_ids(pd.read_csv('input_data.csv'))#.to_csv('results.csv')
 

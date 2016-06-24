@@ -4,11 +4,12 @@ import logging
 import sys
 sys.path.append('.')
 sys.path.append('..')
+import sqlite3
+
 import read_data
 import config.constants as constants
 
 log = logging.getLogger('recommend.preprocess')
-
 
 DEBUG=False
 
@@ -68,7 +69,6 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,source_type=con
 
 	selected_columns = get_features()	#Only select these features
 
-
 	log.info("Reading data")
 
 	try:
@@ -76,7 +76,6 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,source_type=con
 	except IOError as e:
 		log.error("Could not open file - %s" % input_file_name)
 		raise
-
 	
 	if(DEBUG):
 		df.to_csv('raw.csv')
@@ -87,15 +86,16 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,source_type=con
 		df.to_csv('preprocessed.csv')
 
 	if(to_index):
-
+		log.info("Connecting to db: %s" % constants.FILE_INDEX_DB)
+		conn = sqlite3.connect(constants.FILE_INDEX_DB)
 		outf = df[selected_columns[0]]	#select only ids
 		if(to_append):
-			log.info("Appending to index: %s" % constants.FILE_INDEX)
-			with open(constants.FILE_INDEX,'a')as f:
-				outf.to_csv(f,index=False)	
+			log.info("Appending to index")
+			outf.to_sql('ids',conn,if_exists='append',index_label="indx")
 		else:
-			log.info("Saving to index: %s" % constants.FILE_INDEX)
-			outf.to_csv(constants.FILE_INDEX,index=False)
-
+			log.info("Saving to index")
+			outf.to_sql('ids',conn,if_exists='replace',index_label="indx")
+		conn.close()
+		
 	return df[selected_columns[column_offset:]]
 

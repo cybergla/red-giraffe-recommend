@@ -6,7 +6,11 @@ FILE_SCALE_MODEL = "./models/scale_model.pkl"	#Name of the scale model pickle fi
 FILE_INDEX = "./data/index.csv"		#Name of the index file
 FILE_PARTIAL_DATA = "./data/partialdata.csv"#File to perform partial fitting
 FILE_CLUSTER_LOG = "logs/cluster.log"
+FILE_INDEX_DB = "db/index.db"
+
+#Preprocessing
 SOURCE_TYPE= "csv"
+
 #Clustering constants
 N_CLUSTERS=-1
 CLUSTER_FACTOR=5
