@@ -108,6 +108,8 @@
 2016-06-24 11:06:57,181 - recommend.preprocess - INFO - Saving to index
 2016-06-24 11:06:57,202 - recommend.cluster - INFO - Normalizing data
 2016-06-24 11:06:57,205 - recommend.cluster - INFO - Clustering on data/prod1.csv with 174 clusters
+2016-06-24 11:06:57,595 - recommend.cluster - INFO - Saving models to disk
+<<<<<<< Updated upstream
 2016-06-24 12:07:38,737 - recommend.cluster - INFO - Getting data from file
 2016-06-24 12:07:38,745 - recommend.preprocess - INFO - Reading data
 2016-06-24 12:07:38,763 - recommend.preprocess - INFO - Preprocessing
@@ -132,4 +134,23 @@
 2016-06-24 12:10:14,175 - recommend.cluster - INFO - Normalizing data
 2016-06-24 12:10:14,177 - recommend.cluster - INFO - Clustering on data/prod1.csv with 174 clusters
 2016-06-24 12:10:14,552 - recommend.cluster - INFO - Saving models to disk
-
+=======
+2016-06-24 12:09:02,817 - recommend.cluster - INFO - Getting data from file
+2016-06-24 12:09:02,819 - recommend.preprocess - INFO - Reading data
+2016-06-24 12:09:02,835 - recommend.preprocess - INFO - Preprocessing
+2016-06-24 12:09:02,835 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-24 12:09:02,837 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-24 12:09:02,844 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-24 12:09:04,359 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-24 12:09:04,359 - recommend.preprocess - INFO - Connecting to db: db/index.db
+2016-06-24 12:09:04,360 - recommend.preprocess - INFO - Saving to index
+2016-06-24 12:09:44,650 - recommend.cluster - INFO - Getting data from file
+2016-06-24 12:09:44,652 - recommend.preprocess - INFO - Reading data
+2016-06-24 12:09:44,665 - recommend.preprocess - INFO - Preprocessing
+2016-06-24 12:09:44,665 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-24 12:09:44,667 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-24 12:09:44,672 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-24 12:09:46,217 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-24 12:09:46,217 - recommend.preprocess - INFO - Connecting to db: db/index.db
+2016-06-24 12:09:46,217 - recommend.preprocess - INFO - Saving to index
+>>>>>>> Stashed changes

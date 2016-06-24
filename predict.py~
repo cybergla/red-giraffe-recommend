@@ -16,7 +16,10 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None,getList=T
 	selected_columns = preprocess.get_features()
 	#Preprocess the item to be predicted
 	df = preprocess.process_data(df[selected_columns[1:]])
+	#Load scale model from disk
+	#scale = joblib.load(constants.FILE_SCALE_MODEL)
 	#Normalize data
+	#test = scale.transform(df)
 	test = scaling.scale_new_data(df)
 	#Load cluster model from disk
 	model = joblib.load(constants.FILE_CLUSTER_MODEL)

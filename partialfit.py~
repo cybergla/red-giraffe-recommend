@@ -19,7 +19,10 @@ def fit(input_file=constants.FILE_PARTIAL_DATA):
 	log.info("Partial fit on %s" % input_file)
 	df = preprocess.get_data(input_file,1,to_append=True)
 	log.debug("Size of dataset: %d x %d" % df.shape)
-	#Normalize data
+
+	#Load scale model from disk
+	#std_scale = joblib.load(constants.FILE_SCALE_MODEL)
+	#dataset = std_scale.transform(df)
 	dataset = scaling.scale_new_data(df)
 
 	#Load cluster model from disk

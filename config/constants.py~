@@ -10,7 +10,7 @@ FILE_INDEX_DB = "db/index.db"
 
 #Preprocessing
 SOURCE_TYPE= "csv"
-SCALER = 'standard'
+
 #Clustering constants
 N_CLUSTERS=-1
 CLUSTER_FACTOR=5

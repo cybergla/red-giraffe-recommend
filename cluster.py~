@@ -21,7 +21,8 @@ def fit(input_file=constants.FILE_DATA):
 
 	#Normalize data
 	log.info("Normalizing data")
-	#Normalize data
+	#scale = scaling.get_scaler(constants.SCALER).fit(df)
+	#dataset = scale.transform(df)
 	dataset = scaling.scale_data(df)
 	#Determine number of clusters
 	if(constants.N_CLUSTERS == -1):
