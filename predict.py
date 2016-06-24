@@ -11,7 +11,7 @@ import config.constants as constants
 import utils.scaling as scaling
 DEBUG=True
 
-def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None,getList=True):
+def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None):
 	#Get required features
 	selected_columns = preprocess.get_features()
 	#Preprocess the item to be predicted

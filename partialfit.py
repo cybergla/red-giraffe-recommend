@@ -9,7 +9,7 @@ import utils.preprocess as preprocess
 import config.constants as constants
 import utils.scaling as scaling
 def fit(input_file=constants.FILE_PARTIAL_DATA):
-	log = logging.getLogger('recommend.partial_fit')
+	log = logging.getLogger(constants.LOGGER_PARTIAL_FIT)
 
 	if not len(log.handlers):
 		fh = logging.FileHandler(constants.FILE_CLUSTER_LOG)

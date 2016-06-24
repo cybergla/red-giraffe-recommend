@@ -10,9 +10,11 @@ FILE_INDEX_DB = "db/index.db" 		#Index DB location
 FILE_INPUT_DATA = "./data/input_data2.csv" 	#Sample input data for debugging purposes
 
 #Preprocessing
-SOURCE_TYPE= "csv"
+SOURCE_TYPE = "csv"
+SEPARATOR = ","
 SCALER = 'standard'		#Change this to change the type of scaler
 
+#Scaling types
 SCALER_TYPE_STANDARD = 'standard'
 SCALER_TYPE_MIN_MAX = 'min-max'
 SCALER_TYPE_ROBUST = 'robust'
@@ -26,5 +28,12 @@ N_INIT=10
 MAX_NO_OF_IMPROVEMENT=10
 VERBOSE=0
 RANDOM_STATE=0
+
+#Logging
+LOGGER_TOP = 'recommend'
+LOGGER_CLUSTER = 'recommend.cluster'
+LOGGER_PREPROCESS = 'recommend.preprocess'
+LOGGER_PARTIAL_FIT = 'recommend.partial_fit'
+
 
 

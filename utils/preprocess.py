@@ -9,7 +9,7 @@ import sqlite3
 import read_data
 import config.constants as constants
 
-log = logging.getLogger('recommend.preprocess')
+log = logging.getLogger(constants.LOGGER_PREPROCESS)
 
 DEBUG=False
 
@@ -17,7 +17,7 @@ def get_features(input_file_name=constants.FILE_FEATURES):
 	"""
 	Get features as a list from csv
 	"""
-	df_features = pd.read_csv(input_file_name,sep=',',header=None)	
+	df_features = pd.read_csv(input_file_name,sep=constants.SEPARATOR,header=None)	
 	return df_features[0].values
 
 def drop_data(df,coulmn,invalid):
@@ -36,7 +36,7 @@ def process_data(df):
 	df = df.dropna()
 
 	log.info("Reading features from %s" % constants.FILE_FEATURES)
-	df_features = pd.read_csv(constants.FILE_FEATURES,sep=',',header=None)
+	df_features = pd.read_csv(constants.FILE_FEATURES,sep=constants.SEPARATOR,header=None)
 
 	repl_cols = []
 	for index, row in df_features.iterrows():

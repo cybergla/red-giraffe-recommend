@@ -14,7 +14,7 @@ import config.constants as constants
 import utils.preprocess as preprocess
 import utils.scaling as scaling
 def fit(input_file=constants.FILE_DATA):
-	log = logging.getLogger('recommend.cluster')
+	log = logging.getLogger(constants.LOGGER_CLUSTER)
 
 	log.info("Getting data from file")
 	df = preprocess.get_data(input_file,1)

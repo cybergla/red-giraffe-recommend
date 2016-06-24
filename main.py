@@ -13,7 +13,7 @@ parser.add_argument('--mode','-m', type=str, choices=['FULL','PARTIAL'], help='T
 args = parser.parse_args()
 
 #Initialize logs
-log = logging.getLogger('recommend')
+log = logging.getLogger(constants.LOGGER_TOP)
 log.setLevel(getattr(logging,args.log.upper()))
 fh = logging.FileHandler(constants.FILE_CLUSTER_LOG)
 fh.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s'))

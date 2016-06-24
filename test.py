@@ -18,4 +18,4 @@ os.system("python cluster.py -i " + args.train_file)
 selected_columns = preprocess.get_features()
 df = pd.read_csv(args.test_file,usecols=selected_columns)
 for i in xrange(args.N):
-	predict.get_reccomended_ids(df[i:i+1],args.test_file,None,False).to_csv("./results/output "+str(i)+".csv",index=False)
+	print predict.get_reccomended_ids(df[i:i+1],args.test_file,None)
