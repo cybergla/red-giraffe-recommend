@@ -12,6 +12,11 @@ def scale_data(df):
 def scale_new_data(df):
 	std_scale = joblib.load(constants.FILE_SCALE_MODEL)
 	return std_scale.transform(df)
+
 def get_scaler(scale=constants.SCALER):
-	if(scale=='standard'):
+	if scale == 'standard':
 		return preprocessing.StandardScaler()
+	if scale == 'min-max':
+		return preprocessing.MinMaxScaler()
+	if scale == 'robust'
+		return preprocessing.RobustScaler()

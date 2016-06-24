@@ -39,6 +39,5 @@ def fit(input_file=constants.FILE_DATA):
 	#Save model to disk
 	log.info("Saving models to disk")
 	joblib.dump(model, constants.FILE_CLUSTER_MODEL)
-	
 
 	return
