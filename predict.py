@@ -43,7 +43,7 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None,getList=T
 	result = cur.fetchall()
 	if result == []:
 		return None
-	return [r[0] for r in result]
+	return [r[0] for r in result] 	#Convert the list of tuples into a simple list
 
 #print get_reccomended_ids(pd.read_csv('input_data.csv'))#.to_csv('results.csv')
 
