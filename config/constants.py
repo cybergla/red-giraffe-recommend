@@ -11,7 +11,12 @@ FILE_INPUT_DATA = "./data/input_data2.csv" 	#Sample input data for debugging pur
 
 #Preprocessing
 SOURCE_TYPE= "csv"
-SCALER = 'standard'
+SCALER = 'standard'		#Change this to change the type of scaler
+
+SCALER_TYPE_STANDARD = 'standard'
+SCALER_TYPE_MIN_MAX = 'min-max'
+SCALER_TYPE_ROBUST = 'robust'
+
 #Clustering constants
 N_CLUSTERS=-1
 CLUSTER_FACTOR=5
