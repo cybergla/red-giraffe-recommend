@@ -94,6 +94,7 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,source_type=con
 			outf.to_sql('ids',conn,if_exists='append',index_label="indx")
 		else:
 			log.info("Saving to index")
+			print type(outf)
 			outf.to_sql('ids',conn,if_exists='replace',index_label="indx")
 		conn.close()
 		

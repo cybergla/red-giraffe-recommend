@@ -47,10 +47,9 @@ recommend/
 ### 1. Clustering
 Cluster using K-Means algorithm on the dataset given in `data/<file-name.csv>`
 ```
-usage: cluster.py [-h] [--input-file INPUT_FILE] 
-                  [--n-clusters N_CLUSTERS]
-                  [--cluster-factor CLUSTER_FACTOR]
-                  [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+usage: main.py [-h] [--input-file INPUT_FILE]
+               [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
+               [--mode {FULL,PARTIAL}]
 
 Perform K Means clustering on a given dataset.
 
@@ -58,33 +57,21 @@ optional arguments:
   -h, --help            show this help message and exit
   --input-file INPUT_FILE, -i INPUT_FILE
                         the file name of the input dataset
-  --n-clusters N_CLUSTERS, -N N_CLUSTERS
-                        number of clusters (default: no. of samples/cf)
-  --cluster-factor CLUSTER_FACTOR, -cf CLUSTER_FACTOR
-                        determines number of clusters (default: 5)
   --log {DEBUG,INFO,WARNING,ERROR,CRITICAL}
                         Logging level (default: WARNING)
+  --mode {FULL,PARTIAL}, -m {FULL,PARTIAL}
+                        Type of clustering (default: FULL)
 ```
+#### 1.1 Full
+Clustering is done on the entire dataset and a new model + index is created. Should be used for large data
+
+#### 1.2 Partial
+Partial fit is done when there is incremental data to be fed into the model. Model is appended with the new labels, but the old data will **not** have its labels updated. Therefore, it should only be used for small amounts of data (< 10% of the size of the original dataset). Otherwise predictions might not be that accurate.
+
 ### 2. Predictions
 Predicts the similar properties for a given property whose attributes are specified in the form json data.
 
 Returns a list of property ids.
-
-### 3. Partial Fit
-```
-usage: partialfit.py [-h] [--input-file INPUT_FILE]
-                     [--log {DEBUG,INFO,WARNING,ERROR,CRITICAL}]
-
-Partially fit a small dataset to an existing model
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --input-file INPUT_FILE, -i INPUT_FILE
-                        the file name of the input dataset
-  --log {DEBUG,INFO,WARNING,ERROR,CRITICAL}
-                        Logging level (default: WARNING)
-```
-**Important**: The partial fit does not update the number of clusters or the labels of the existing model. Should only be used when the size of the partial dataset is much smaller (< 10%) than that of the original one. Otherwise the quality of predictions will suffer.
 
 ### 4. Server
 A flask service which uses the predict module to give out recommendations.
@@ -96,10 +83,16 @@ Keeps project level constants such as default filenames, field names etc.
 
 ### 6 Utils
 #### 6.1 Preprocess
-Contains all the preprocessing logic such as sanitising input, removing unnecessary columns, regex substitution on specified columns
+Contains all the preprocessing logic such as sanitising input, removing unnecessary columns, regex substitution on specified columns.
+* To drop rows containing invalid values, specify that value in the `invalid_value` column in the features.csv table.
+* All rows containing NA/NULL values will be dropped automatically
+* To filter columns, specify the regular expression in the `regex` column and the substitute value in `substitution`
 
 #### 6.2 Json_convert
 Utility for conversion of input JSON data to program specific CSV format
+
+#### 6.3 Read Data
+Module to read data from multiple sources
 
 ### 7. Test
 The test module is a small script that performs clustering and predictions using test data and outputs the results to the `results/` folder.
@@ -117,4 +110,13 @@ optional arguments:
                         the file name of the testing dataset
   -N N                  number of testing samples to select from the testing
                         dataset (default: 5)
+```
+
+### 8. Data
+#### 8.1 Features
+Specify which features to choose from the data set for clustering. Format :-
+```
++---------------+---------------+---------------+--------------+--------------+--------------+
+| column_name   | invalid_value | regex         | substitution | regex        | substitution | ....
++---------------+---------------+---------------+--------------+--------------+--------------+
 ```
