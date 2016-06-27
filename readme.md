@@ -31,6 +31,8 @@ recommend/
         graph.py
         preprocess.py
         json_convert.py
+        read_data.py
+        scaling.py
     logs/
     data/
     results/
