@@ -4,6 +4,7 @@ import config.constants as constants
 import sys
 sys.path.append('.')
 sys.path.append('..')
+
 def scale_data(df):
 	std_scale = get_scaler().fit(df)
 	#Save normalized model to disk

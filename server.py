@@ -23,15 +23,15 @@ def return_predictions():
 		return response, '200', {"Content-Type": "application/json"}
 
 	else:
-		return "415: Unsupported Media Type.",'415'
+		return "Unsupported Media Type. Expected JSON object",'415'
 
-@app.route('/cluster/api/v1/partial-fit',methods=['POST'])
+@app.route('/cluster/api/v1/partial-fit/',methods=['POST'])
 def do_partial_fit():
 	
 	filename = request.form['filename']
 	partialfit.fit('./data/'+filename)
 	
-	return "Done"
+	return "Done",'200'
 
 if __name__ == '__main__':
 	app.run()

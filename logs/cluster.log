@@ -144,3 +144,59 @@
 2016-06-24 15:26:57,957 - recommend.cluster - INFO - Normalizing data
 2016-06-24 15:26:57,959 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
 2016-06-24 15:26:58,215 - recommend.cluster - INFO - Saving models to disk
+2016-06-27 11:00:50,008 - recommend.partial_fit - INFO - Partial fit on ./data/partialdata.csv
+2016-06-27 11:00:50,008 - recommend.partial_fit - INFO - Partial fit on ./data/partialdata.csv
+2016-06-27 11:00:50,017 - recommend.preprocess - INFO - Reading data
+2016-06-27 11:00:50,024 - recommend.preprocess - INFO - Preprocessing
+2016-06-27 11:00:50,024 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 185
+2016-06-27 11:00:50,026 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-27 11:00:50,033 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-27 11:00:50,415 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 183
+2016-06-27 11:00:50,416 - recommend.preprocess - INFO - Connecting to db: db/index.db
+2016-06-27 11:00:50,420 - recommend.preprocess - INFO - Appending to index
+2016-06-27 11:00:50,432 - recommend.partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-27 11:00:50,432 - recommend.partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-27 11:00:50,437 - recommend.partial_fit - DEBUG - Old labels size: 690
+2016-06-27 11:00:50,437 - recommend.partial_fit - DEBUG - Old labels size: 690
+2016-06-27 11:00:50,445 - recommend.partial_fit - DEBUG - New labels size: 873
+2016-06-27 11:00:50,445 - recommend.partial_fit - DEBUG - New labels size: 873
+2016-06-27 11:02:34,850 - recommend.partial_fit - partial_fit - INFO - Partial fit on ./data/partialdata.csv
+2016-06-27 11:02:34,850 - recommend.partial_fit - INFO - Partial fit on ./data/partialdata.csv
+2016-06-27 11:02:34,852 - recommend.preprocess - INFO - Reading data
+2016-06-27 11:02:34,857 - recommend.preprocess - INFO - Preprocessing
+2016-06-27 11:02:34,857 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 185
+2016-06-27 11:02:34,858 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-27 11:02:34,866 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-27 11:02:35,192 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 183
+2016-06-27 11:02:35,192 - recommend.preprocess - INFO - Connecting to db: db/index.db
+2016-06-27 11:02:35,192 - recommend.preprocess - INFO - Appending to index
+2016-06-27 11:02:35,199 - recommend.partial_fit - partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-27 11:02:35,199 - recommend.partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-27 11:02:35,201 - recommend.partial_fit - partial_fit - DEBUG - Old labels size: 873
+2016-06-27 11:02:35,201 - recommend.partial_fit - DEBUG - Old labels size: 873
+2016-06-27 11:02:35,205 - recommend.partial_fit - partial_fit - DEBUG - New labels size: 1056
+2016-06-27 11:02:35,205 - recommend.partial_fit - DEBUG - New labels size: 1056
+2016-06-27 11:05:50,585 - recommend - partial_fit - INFO - Partial fit on ./data/partialdata.csv
+2016-06-27 11:05:50,587 - recommend.preprocess - partial_fit - INFO - Reading data
+2016-06-27 11:05:50,591 - recommend.preprocess - partial_fit - INFO - Preprocessing
+2016-06-27 11:05:50,592 - recommend.preprocess - partial_fit - DEBUG - Initial: n_features: 15 n_samples: 185
+2016-06-27 11:05:50,593 - recommend.preprocess - partial_fit - INFO - Reading features from ./data/features.csv
+2016-06-27 11:05:50,598 - recommend.preprocess - partial_fit - DEBUG - Number of processed features: 2
+2016-06-27 11:05:50,936 - recommend.preprocess - partial_fit - DEBUG - Final: n_features: 15 n_samples: 183
+2016-06-27 11:05:50,936 - recommend.preprocess - partial_fit - INFO - Connecting to db: db/index.db
+2016-06-27 11:05:50,937 - recommend.preprocess - partial_fit - INFO - Appending to index
+2016-06-27 11:05:50,943 - recommend - partial_fit - DEBUG - Size of dataset: 183 x 14
+2016-06-27 11:05:50,946 - recommend - partial_fit - DEBUG - Old labels size: 1239
+2016-06-27 11:05:50,950 - recommend - partial_fit - DEBUG - New labels size: 1422
+2016-06-27 11:12:24,924 - recommend.cluster - INFO - Getting data from file
+2016-06-27 11:12:24,926 - recommend.preprocess - INFO - Reading data
+2016-06-27 11:12:24,945 - recommend.preprocess - INFO - Preprocessing
+2016-06-27 11:12:24,945 - recommend.preprocess - DEBUG - Initial: n_features: 15 n_samples: 700
+2016-06-27 11:12:24,947 - recommend.preprocess - INFO - Reading features from ./data/features.csv
+2016-06-27 11:12:24,953 - recommend.preprocess - DEBUG - Number of processed features: 2
+2016-06-27 11:12:26,421 - recommend.preprocess - DEBUG - Final: n_features: 15 n_samples: 690
+2016-06-27 11:12:26,421 - recommend.preprocess - INFO - Connecting to db: db/index.db
+2016-06-27 11:12:26,422 - recommend.preprocess - INFO - Saving to index
+2016-06-27 11:12:26,435 - recommend.cluster - INFO - Normalizing data
+2016-06-27 11:12:26,439 - recommend.cluster - INFO - Clustering on ./data/prod.csv with 138 clusters
+2016-06-27 11:12:26,703 - recommend.cluster - INFO - Saving models to disk
