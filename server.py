@@ -17,9 +17,14 @@ def return_success():
 def return_predictions():
 	if request.headers['Content-Type'] == 'application/json':
 		data = request.json
+		p_id = data['hits']['hits'][0]['_id']
 		result = json_normalize(data['hits']['hits'])
-
-		response = jsonify(predict.get_reccomended_ids(result))
+		recs = predict.get_reccomended_ids(result)
+		try:
+			recs.remove(p_id)
+		except Exception, e:
+			print "Could not remove"
+		response = jsonify(recs)
 		return response, '200', {"Content-Type": "application/json"}
 
 	else:
