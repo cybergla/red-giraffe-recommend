@@ -81,7 +81,7 @@ The service is deployed as web service by nginx and gunicorn.
 
 ### 4 Config
 #### 4.1 Constants
-Keeps project level constants such as default filenames, field names etc.
+Keeps project level constants such as default filenames, field names etc. All Keys are documented inside the file.
 
 ### 5 Utils
 #### 5.1 Preprocess

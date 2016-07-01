@@ -25,8 +25,10 @@ def fit(input_file=constants.FILE_DATA):
 	dataset = scaling.scale_data(df)
 	#Determine number of clusters
 	if(constants.N_CLUSTERS == -1):
+		#Calculate clusters
 		n_clusters = dataset.shape[0]/constants.CLUSTER_FACTOR
 	else:
+		#Directly use number of clusters provided in config
 		n_clusters = constants.N_CLUSTERS
 
 	#Make model
