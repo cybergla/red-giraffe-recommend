@@ -91,10 +91,10 @@ def get_data(input_file_name=constants.FILE_DATA,column_offset=0,source_type=con
 		outf = df[selected_columns[0]]	#select only ids
 		if(to_append):
 			log.info("Appending to index")
-			outf.to_sql('ids',conn,if_exists='append',index_label="indx")
+			outf.to_sql(constants.TABLE_NAME,conn,if_exists='append',index_label=constants.COL_INDEX)
 		else:
 			log.info("Saving to index")
-			outf.to_sql('ids',conn,if_exists='replace',index_label="indx")
+			outf.to_sql(constants.TABLE_NAME,conn,if_exists='replace',index_label=constants.COL_INDEX)
 		conn.close()
 		
 	return df[selected_columns[column_offset:]]

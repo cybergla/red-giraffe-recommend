@@ -9,6 +9,10 @@ FILE_CLUSTER_LOG = "logs/cluster.log" #Cluster log file
 FILE_INDEX_DB = "db/index.db" 		#Index DB location
 FILE_INPUT_DATA = "./data/input_data2.csv" 	#Sample input data for debugging purposes
 
+#Index DB stuff
+TABLE_NAME = "ids"
+COL_INDEX = "indx"
+
 #Preprocessing
 SOURCE_TYPE = "csv"
 SEPARATOR = ","

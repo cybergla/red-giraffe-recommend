@@ -17,9 +17,9 @@ def return_success():
 def return_predictions():
 	if request.headers['Content-Type'] == 'application/json':
 		data = request.json
-		p_id = data['hits']['hits'][0]['_id']
-		result = json_normalize(data['hits']['hits'])
-		recs = predict.get_reccomended_ids(result)
+		p_id = data['hits']['hits'][0]['_id']			#Get reuested property id
+		result = json_normalize(data['hits']['hits'])	#Flatten JSON
+		recs = predict.get_reccomended_ids(result)		#Get recommendations and remove requested property from it
 		try:
 			recs.remove(p_id)
 		except Exception, e:

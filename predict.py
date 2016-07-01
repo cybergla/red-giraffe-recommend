@@ -34,7 +34,7 @@ def get_reccomended_ids(df,FILE_INDEX=constants.FILE_INDEX,header=None):
 	#Get db cursor
 	cur = conn.cursor()
 	#Create SQL query
-	sql="select _id from ids where indx in ({seq})".format(seq=','.join(['?']*len(similar)))
+	sql="select _id from {table} where {col} in ({seq})".format(seq=','.join(['?']*len(similar)),table=constants.TABLE_NAME,col=constants.COL_INDEX)
 	#Run query
 	cur.execute(sql,similar)
 	#Fetch and return result
